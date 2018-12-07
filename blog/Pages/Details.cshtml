@@ -1,0 +1,14 @@
+﻿@page
+@model blog.Pages.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Article.Title</h2>
+<p><date-in-words>@Model.Article.datePublished</date-in-words>
+    by @Model.Article.Author.Fullname</p>
+<blockquote>
+    <excerpt summary-length="300">@Model.Article.Content</excerpt></blockquote>
+<markdown source="@Model.Article.Content"></markdown>
+<p>@Model.Article.Tags</p>

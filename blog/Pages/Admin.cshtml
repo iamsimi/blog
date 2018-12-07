@@ -1,0 +1,39 @@
+﻿@page
+@model blog.Pages.AdminModel
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Admin</h2>
+
+
+<form method="post">
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Date Published</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var article in Model.Articles)
+            {
+                <tr>
+                    <td>@article.id</td>
+                    <td>@article.Title</td>
+                    <td>@article.datePublished</td>
+                    <td>  
+                        <a asp-page="./Edit" asp-route-id="@article.id">Edit</a> |
+                        <button type="submit" asp-page-handler="delete" asp-route-id="@article.id">Delete</button>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-page="./Create">Create</a>
+</form>

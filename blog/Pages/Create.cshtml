@@ -1,0 +1,38 @@
+﻿@page
+@model blog.Pages.CreateModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <section>
+            <form method="post">
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Article.Title"></label>
+                    <input asp-for="Article.Title" class="form-control" />
+                    <span asp-validation-for="Article.Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Article.Tags"></label>
+                    <input asp-for="Article.Tags" class="form-control" />
+                    <span asp-validation-for="Article.Tags" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Article.Content"></label>
+                    <textarea asp-for="Article.Content" placeholder="start with summary about 300 Characters in plain text then write content in using html tags and keep your format" class="form-control" rows="50" ></textarea>
+                    <span asp-validation-for="Article.Content" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Create</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+

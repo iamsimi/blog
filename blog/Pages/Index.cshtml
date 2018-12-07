@@ -1,0 +1,18 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+@foreach (var article  in Model.Articles)
+{
+<div class="article">
+    <h3 style="color:cadetblue">@article.Title</h3> 
+    <p><date-in-words>@article.datePublished</date-in-words>by @article.Author.Fullname</p>
+    <blockquote><excerpt summary-length="300">@article.Content</excerpt><a asp-route-id="@article.id" asp-page="./Details">....Read more</a></blockquote>
+</div>
+    <hr/>
+}
+
+    <a asp-page="./Create" class="btn btn-primary">+ Write new articles</a>
